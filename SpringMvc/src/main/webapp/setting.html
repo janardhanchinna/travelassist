@@ -4,6 +4,7 @@
 <head>
 <!-- Include meta tag to ensure proper rendering and touch zooming -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-signin-client_id" content="735125023254-f4k9i3diaom04l0ea4oj5ebhajjna3e5.apps.googleusercontent.com">
 <!-- Include jQuery Mobile stylesheets -->
 <link rel="stylesheet"
     href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
@@ -12,9 +13,26 @@
 <!-- Include the jQuery Mobile library -->
 <script
     src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript">
+   function onLoadFunction() {
+       var userName= getQueryStringByParameter('userName');
+       var profilePic = getQueryStringByParameter('imageUrl');
+       var _profilepic = document.getElementById('profilepic');
+       var _userName = document.getElementById('userName');
+       var _emailId = document.getElementById('emailId');
+       _profilepic.src=profilePic;
+       _userName.innerHTML=userName;
+       _emailId.innerHTML=getQueryStringByParameter('emailId');
+    }
+   
+   function getQueryStringByParameter(name) {
+       name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+       var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+       results = regex.exec(location.search);
+       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+   }
+</script>
 <style type="text/css">
 .hilightText {
     color: #00A1DE;
@@ -24,23 +42,30 @@
     color: #9D9D9D;
     font-size: 13px;
 }
-.textStyle1 {
-    color: black;
+.mediumText {
+    color: #00A1DE;
     font-size: 13px;
+}
+#circle
+{
+    border-radius:50% 50% 50% 50%;  
+    width:100px;
+    height:100px;
 }
 </style>
 </head>
-<body>
-    <div class="container" align="center">
-	  <img src="images\profile_pic.png" class="img-responsive img-circle" alt="Cinque Terre" width="100" height="100">
-	  <h3 class="hilightText">Jeff Weiner</h3> 
-	</div>
-	<div data-role="collapsible" data-collapsed="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
-	    <h4>Personal Details</h4>
-	    <p>
-	       <div class="table-responsive">          
+<body onload="onLoadFunction()">
+    <div  align="center">
+      </br>
+      <img src="#" id="profilepic" width="100px" height="100px"/>
+      <h3 class="hilightText" id="userName"></h3> 
+    </div>
+    <div data-role="collapsible" data-collapsed="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
+        <h4>Personal Details</h4>
+        <p>
+           <div class="table-responsive">          
             <table class="table">
-	           <tr>
+               <tr>
                    <td>Address</td>
                    <td>927 Glasgow, ES 23A</td>
                </tr>
@@ -48,19 +73,20 @@
                    <td>Telephone number</td>
                    <td>+31 625768935</td>
                </tr>
-	           <tr>
-	               <td>Email address</td>
-	               <td>jeffweiner@linkedin.com</td>
-	           </tr>
-	           <tr>
-	               <td>Curent orginization</td>
-	               <td>Linked in</td>
-	           </tr>
-	       </table>
-	       </div>
-    	</p>
-	</div>
-	<div data-role="collapsible" data-collapsed="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
+               <tr>
+                   <td>Email address</td>
+                   <td id="emailId"></td>
+               </tr>
+               <tr>
+                   <td>Curent orginization</td>
+                   <td>Linked in</td>
+               </tr>
+           </table>
+           </div>
+        </p>
+    </div>
+    <form>
+    <div data-role="collapsible" data-collapsed="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
         <h4>Preferred settings</h4>
         <p>
             <table>
@@ -68,13 +94,12 @@
                     <td>Notify me before 7 Days</td>
                 </tr>
             </table>
-	       <div align="center">
-	        <input style="background-color: red" type="button" data-theme="a" data-inline="true" value="Cancel">
-	        <input style="background-color: green" type="button" data-theme="a" data-inline="true" value="Save">
-	    </div>
-	   </p>
+           <div align="center">
+            <input style="background-color: red" type="button" data-theme="a" data-inline="true" value="Cancel">
+            <input style="background-color: green" type="button" data-theme="a" data-inline="true" value="Save" onclick="location.href='settingSuccess.html'">
+        </div>
+       </p>
     </div>
-</form>
-</div>
+    </form>
 </body>
 </html>
