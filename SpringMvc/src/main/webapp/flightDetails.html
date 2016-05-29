@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet"
+          href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script
+            src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controller/mycontroller.js"></script>
+    <style type="text/css">
+        .hilightText {
+            color: #00A1DE;
+            font-size: 15px;
+        }
+        .normalText {
+            color: #9D9D9D;
+            font-size: 13px;
+        }
+        .mediumText {
+            color: #00A1DE;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="UserController as ctrl">
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">
+            <center>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td align="center">Council Meeting - Dubai</td>
+                                </tr>
+                                <tr>
+                                    <td>Friday, June 6, 2016 07:00 - 08:00</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </center>
+        </li>
+        <li><a href="Payment.html">     
+            <h2>
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr class="hilightText">
+                                    <td>20:40</td>
+                                </tr>
+                                <tr class="normalText">
+                                    <td>FRA</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="padding-left: 30px;padding-right: 30px;" class="normalText" >
+                            <table>
+                                <tr>
+                                    <td>06h15m</td>
+                                </tr>
+                                <tr>
+                                    <td>Direct</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr class="hilightText">
+                                    <td>11:45</td>
+                                </tr>
+                                <tr class="normalText">
+                                    <td>DXB</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><hr style="height:1pt; visibility:hidden;" /></td>
+                    </tr>
+                    <tr class="mediumText">
+                        <td>FL3</td>
+                        <td></td>
+                        <td>EUR 98.30</td>
+                    </tr>
+                </table>
+            </h2>     
+        </a></li>
+    </ul>
+    <div class="checkbox">
+        <label><input type="checkbox" value="">Inflight Wi-Fi <span class="mediumText" style="float: right">EUR 10</span></label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" value="">Lounge pass <span class="mediumText" style="float: right">EUR 50</span></label>
+    </div>
+    <div class="checkbox disabled">
+        <label><input type="checkbox" value="">Advanced seat selection <span class="mediumText" style="float: right">EUR 10</span></label>
+    </div>
+    <div class="checkbox disabled">
+        <label><input type="checkbox" value="">Premium Seating <span class="mediumText" style="float: right">EUR 70</span></label>
+    </div>
+    <div class="checkbox disabled">
+        <label><input type="checkbox" value="">Vegetarian Meal<span class="mediumText" style="float: right">FREE</span></label>
+    </div>
+
+    <a href="setting.html" class="ui-btn ui-btn-b ui-corner-all">Book</a>
+
+</div>
+</body>
+</html>
